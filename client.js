@@ -3,7 +3,7 @@ const net = require("net");
 // establishes a connection with the game server
 const connect = function() {
   const conn = net.createConnection({
-    host: "165.227.47.243", // IP address here,
+    host: "10.0.0.224", // IP address here,
     port: 50541, // PORT number here,
   });
 
@@ -17,8 +17,11 @@ const connect = function() {
   });
 
   conn.on("connect", function() {
-    console.log("conn is connected to server.");
+    console.log("I AM successfully connected to game server.");
+    conn.write('Name: SMC');
   });
+
+ 
 
   conn.on("data", function(message) {
     console.log("server sent:", message);
