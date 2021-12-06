@@ -19,10 +19,12 @@ const connect = function() {
   conn.on("connect", function() {
     console.log("I AM successfully connected to game server.");
     conn.write('Name: SMC');
+    setInterval(() => {
+      conn.write("Move: up");
+    }, 5000);
+
   });
-
  
-
   conn.on("data", function(message) {
     console.log("server sent:", message);
   });
